@@ -9,7 +9,7 @@ const numberOfLatestPostsToShow = 3;
 <blockquote>The fox knows many little things, but the hedgehog knows one big thing.</blockquote>
 
 <h1>Welcome.</h1>
-{{ metadata.description }}
+<p>I'm William, and this is my blog. It's for publishing, I'll get around to making it pretty or clever eventually.</p>
 <h2>Recent posts.</h2>
 {% set postsCount = collections.posts | length %}
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
@@ -20,14 +20,3 @@ const numberOfLatestPostsToShow = 3;
 {% if morePosts > 0 %}
 	<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
 {% endif %}
-
-{# List every content page in the project #}
-<ul>
-	{%- for entry in collections.all %}
-		<li>
-			<a href="{{ entry.url }}">
-				<code>{{ entry.url }}</code>
-			</a>
-		</li>
-	{%- endfor %}
-</ul>
