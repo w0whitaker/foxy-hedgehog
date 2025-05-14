@@ -21,19 +21,25 @@
 		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
 		#}
 
-		{#- Add an arbitrary string to the bundle #}
-		{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
 		{#- Add the contents of a file to the bundle #}
-		{%- css %}{% include "public/css/main.css" %}{% endcss %}
-		{#- Or you can add from node_modules #}
-		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
+		{%- css "reset" %}{% include "node_modules/@acab/reset.css/index.css" %}{% endcss %}
+		{%- css "base" %}{% include "_includes/css/_base.css" %}{% endcss %}
+		{%- css "utility" %}{% include "_includes/css/_utility.css" %}{% endcss %}
 
 		{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
+		{# <style>
+			@layer reset;
+			@import url({% getBundle "css", "reset" %}) layer(reset);
+		</style> #}
 		<style>
-			{% getBundle "css" %}
+			@layer reset, base, utility;
+			@import url({% getBundleFileUrl "css", "reset" %}) layer(reset);
+			@import url({% getBundleFileUrl "css", "base" %}) layer(base);
+			@import url({% getBundleFileUrl "css", "utility" %}) layer(utility);
 		</style>
 		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
 		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+		{# <link rel="stylesheet" href="public/css/main.css"> #}
 
 		{#- Add the heading-anchors web component to the JavaScript bundle #}
 		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
@@ -42,7 +48,9 @@
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
+			<div class="site-title">
+				<a href="/" class="home-link">{{ metadata.title }}</a>
+			</div>
 
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 			<nav>
@@ -58,9 +66,7 @@
 		</header>
 
 		<main id="skip">
-			<heading-anchors>
-				{{ content | safe }}
-			</heading-anchors>
+			{{ content | safe }}
 		</main>
 
 		<footer>
