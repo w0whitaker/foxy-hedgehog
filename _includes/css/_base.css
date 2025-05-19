@@ -112,7 +112,7 @@ h4 {
 
 :is(h5, h6) {
 	font-size: var(--step-0);
-	color: var(--tertiary-500);
+	color: inherit;
 }
 
 h5 {
