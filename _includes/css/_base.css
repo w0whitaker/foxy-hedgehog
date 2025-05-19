@@ -12,7 +12,7 @@
 	--secondary-900: oklch(10% 0.029 0);
 	/* negroni */
 	--tertiary: oklch(91.36% 0.0539 60.72);
-	--tertiary-125: oklch(88% 0.046 271.19);
+	--tertiary-500: oklch(49% 0.113 60.72);
 	--tertiary-900: oklch(10% 0.049 271.19);
 	--neutral: oklch(19.2% 0.0026 67.68);
 	--neutral-500: oklch(49% 0.007 67.68);
@@ -89,7 +89,7 @@ body {
 	font-size: var(--step-0);
 }
 
-:is(h1, h2, h3, h4) {
+:is(h1, h2, h3, h4, h5) {
 	font-weight: 900;
 	color: var(--primary-125);
 }
@@ -112,7 +112,17 @@ h4 {
 
 :is(h5, h6) {
 	font-size: var(--step-0);
-	color: inherit;
+	color: var(--tertiary-500);
+}
+
+h5 {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+h6 {
+	font-weight: 600;
+	font-style: italic;
 }
 
 :is(header, footer) {
