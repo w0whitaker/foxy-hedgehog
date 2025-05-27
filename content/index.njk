@@ -6,23 +6,5 @@ const eleventyNavigation = {
 
 const numberOfLatestPostsToShow = 3;
 ---
-<header>
-	<p>this is a header</p>
-</header>
-<h1>this is an h1</h1>
-<h2>this is an h2</h2>
-<h3>this is an h3</h3>
-<h4>this is an h4</h4>
-<h5>this is an h5</h5>
-<h6>this is an h6</h6>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque distinctio voluptatibus delectus optio, dolores sit alias facilis, dolor in doloremque libero quis beatae fugiat saepe nam dicta nostrum, minima earum?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque distinctio voluptatibus delectus optio, dolores sit alias facilis, dolor in doloremque libero quis beatae fugiat saepe nam dicta nostrum, minima earum?</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque distinctio voluptatibus delectus optio, dolores sit alias facilis, dolor in doloremque libero quis beatae fugiat saepe nam dicta nostrum, minima earum?</p>
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}
+{% set postslist = collections.posts %}
+{% include "postslist.njk" %}
