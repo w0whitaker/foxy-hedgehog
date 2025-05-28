@@ -6,5 +6,26 @@ const eleventyNavigation = {
 
 const numberOfLatestPostsToShow = 3;
 ---
-{% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+<div class="site-title">
+	<h1>{{ metadata.title }}</h1>
+	<p>{{ metadata.description }}</p>
+</div>
+<h2>Latest posts.</h2>
+<ol>
+	{% set postslist = collections.posts %}
+	{%- for post in postslist | reverse %}
+		<li>
+			<h3>
+				<a href="{{ post.url }}">
+					{% if post.data.title %}{{ post.data.title }}
+					{% else %}
+						<code>{{ post.url }}</code>
+					{% endif %}
+				</a>
+			</h3>
+			<p>
+				<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
+			</p>
+		</li>
+	{%- endfor %}
+</ol>
