@@ -10,22 +10,22 @@ const numberOfLatestPostsToShow = 3;
 	<h1>{{ metadata.title }}</h1>
 	<p>{{ metadata.description }}</p>
 </div>
-<h2>Latest posts.</h2>
 <ol>
-	{% set postslist = collections.posts %}
-	{%- for post in postslist | reverse %}
+	{% set commonlist = collections.commonplace %}
+	{%- for common in commonlist %}
 		<li>
-			<h3>
-				<a href="{{ post.url }}">
-					{% if post.data.title %}{{ post.data.title }}
-					{% else %}
-						<code>{{ post.url }}</code>
-					{% endif %}
-				</a>
-			</h3>
-			<p>
-				<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("LLLL yyyy") }}</time>
-			</p>
+			<figure>
+				<blockquote>
+					{{ common.page.rawInput }}
+				</blockquote>
+				<figcaption>
+					{%- if common.data.source %}
+			- {{ common.data.source.author }}, <cite>{{ common.data.source.title }}</cite>, {{ common.data.source.page }}
+					{%- else %}
+		- citation needed
+		{%- endif %}
+				</figcaption>
+			</figure>
 		</li>
 	{%- endfor %}
 </ol>

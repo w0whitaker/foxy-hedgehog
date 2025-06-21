@@ -1,0 +1,26 @@
+---js
+const eleventyNavigation = {
+  key: "Commonplace",
+  order: 2
+};
+---
+
+<ol>
+  {% set commonlist = collections.commonplace %}
+  {%- for common in commonlist %}
+    <li>
+      <figure>
+        <blockquote>
+          {{ common.page.rawInput }}
+        </blockquote>
+        <figcaption>
+          {%- if common.data.source %}
+			- {{ common.data.source.author }}, <cite>{{ common.data.source.title }}</cite>, {{ common.data.source.page }}
+          {%- else %}
+		- citation needed
+		{%- endif %}
+        </figcaption>
+      </figure>
+    </li>
+  {%- endfor %}
+</ol>

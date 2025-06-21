@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+<figure>
+	<blockquote>
+		{{ content | safe }}
+	</blockquote>
+	<figcaption>
+		{%- if source %}
+			- {{ source.author }}, <cite>{{ source.title }}</cite>, {{ source.page }}
+		{%- else %}
+		- citation needed
+		{%- endif %}
+	</figcaption>
+</figure>
