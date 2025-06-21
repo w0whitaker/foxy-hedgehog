@@ -1,9 +1,7 @@
 ---
 title: "We'll keep the light on for you."
+date: 2025-01-19
 ---
-
-# We'll keep the light on for you.
-
 
 "I'm Tom Bodett for Motel 6, and we'll leave the light on for you." That familiar tagline from the ads for an American motel chain has been on my mind a lot recently. If you've never heard one of those ads, [Tom Bodett ](https://en.wikipedia.org/wiki/Tom_Bodett )has one of those voices that is instantly calming. Slow and sonorous, it's about as regular folks as you can get. 
 I've been slow to process the reelection of Trump. A lot of people are going to suffer as a result of his return. My own personal safety probably will not be much affected. I am fortunate in that. But I will feel scared, I will feel angry and sick. I will not know what to do, I will not know how to be. I like to imagine myself being brave and standing firm against the coming rush of awfulness, but what does that really mean?

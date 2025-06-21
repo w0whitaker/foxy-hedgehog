@@ -1,0 +1,8 @@
+.bold-text {
+	text-transform: uppercase;
+	font-weight: 700;
+}
+
+.italicized-text {
+	font-style: italic;
+}

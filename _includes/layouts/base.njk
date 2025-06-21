@@ -21,19 +21,25 @@
 		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
 		#}
 
-		{#- Add an arbitrary string to the bundle #}
-		{# {%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %} #}
 		{#- Add the contents of a file to the bundle #}
-		{# {%- css %}{% include "public/css/index.css" %}{% endcss %} #}
-		{#- Or you can add from node_modules #}
-		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
+		{%- css "reset" %}{% include "node_modules/@acab/reset.css/index.css" %}{% endcss %}
+		{%- css "base" %}{% include "_includes/css/_base.css" %}{% endcss %}
+		{%- css "utility" %}{% include "_includes/css/_utility.css" %}{% endcss %}
 
 		{#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
 		{# <style>
-			{% getBundle "css" %}
+			@layer reset;
+			@import url({% getBundle "css", "reset" %}) layer(reset);
 		</style> #}
+		<style>
+			@layer reset, base, utility;
+			@import url({% getBundleFileUrl "css", "reset" %}) layer(reset);
+			@import url({% getBundleFileUrl "css", "base" %}) layer(base);
+			@import url({% getBundleFileUrl "css", "utility" %}) layer(utility);
+		</style>
 		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
 		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+		{# <link rel="stylesheet" href="public/css/main.css"> #}
 
 		{#- Add the heading-anchors web component to the JavaScript bundle #}
 		{#-
@@ -44,7 +50,6 @@
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
 
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 			{#-
@@ -71,7 +76,7 @@
 			</p>
 		</footer>
 
-		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 	</body>
 </html>

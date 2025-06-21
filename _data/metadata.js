@@ -1,8 +1,8 @@
 export default {
 	title: "Foxy Hedgehog",
-	url: "https://foxy-hedgehog.net/",
+	url: "https://foxyhedgehog.net/",
 	language: "en",
-	description: "Many one big things.",
+	description: "Collecting my thoughts through the thoughts of others.",
 	author: {
 		name: "William Whitaker",
 		email: "williamwhitaker@fastmail.com",

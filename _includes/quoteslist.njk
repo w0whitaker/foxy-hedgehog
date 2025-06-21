@@ -1,0 +1,24 @@
+<ol>
+  {%- for quote in quoteslist %}
+    <li>
+      <figure>
+        <blockquote>
+          {{ quote.data.page.rawInput }}
+        </blockquote>
+        <figcaption>
+          {%- if quote.data.source.author -%}
+            {{ quote.data.source.author }}
+          {%- endif -%}
+          {%- if quote.data.source.title -%}
+          , <cite>{{ quote.data.source.title }}</cite>
+          {%- else -%}
+          , citation needed
+          {%- endif -%}
+          {%- if quote.data.source.page -%}
+          , {{ quote.data.source.page }}
+          {%- endif -%}
+        </figcaption>
+      </figure>
+    </li>
+  {%- endfor %}
+</ol>

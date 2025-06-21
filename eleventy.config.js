@@ -31,8 +31,8 @@ export default async function (eleventyConfig) {
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
-	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	// Watch images for the image pipeline.
+	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");
 
 	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
 	// Adds the {% css %} paired shortcode
@@ -75,13 +75,13 @@ export default async function (eleventyConfig) {
 				name: "Your Name",
 			},
 		},
+				name: "Your Name",
+			},
+		},
 	});
 
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		// File extensions to process in _site folder
-		extensions: "html",
-
 		// Output formats for each image.
 		formats: ["avif", "webp", "auto"],
 
@@ -115,10 +115,12 @@ export default async function (eleventyConfig) {
 
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 }
+}
 
 export const config = {
 	// Control which files Eleventy will process
 	// e.g.: *.md, *.njk, *.html, *.liquid
+	templateFormats: ["md", "njk", "html", "liquid", "11ty.js"],
 	templateFormats: ["md", "njk", "html", "liquid", "11ty.js"],
 
 	// Pre-process *.md files with: (default: `liquid`)

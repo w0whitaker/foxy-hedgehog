@@ -6,17 +6,9 @@ const eleventyNavigation = {
 
 const numberOfLatestPostsToShow = 3;
 ---
-<blockquote>The fox knows many little things, but the hedgehog knows one big thing.</blockquote>
-
-<h1>Welcome.</h1>
-<p>I'm William, and this is my blog. It's for publishing, I'll get around to making it pretty or clever eventually.</p>
-<h2>Recent posts.</h2>
-{% set postsCount = collections.posts | length %}
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-	<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %}
+<div class="site-title">
+	<h1>{{ metadata.title }}</h1>
+	<p>{{ metadata.description }}</p>
+</div>
+{% set quoteslist = collections.commonplace %}
+{% include "quoteslist.njk" %}
