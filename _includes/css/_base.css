@@ -153,3 +153,9 @@ footer {
 p {
 	padding-block: 0.5lh;
 }
+
+figure:has(blockquote) {
+	margin-block-end: 2lh;
+	padding-block: 1lh;
+	border-block: 1px solid black;
+}

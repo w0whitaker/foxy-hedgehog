@@ -10,22 +10,5 @@ const numberOfLatestPostsToShow = 3;
 	<h1>{{ metadata.title }}</h1>
 	<p>{{ metadata.description }}</p>
 </div>
-<ol>
-	{% set commonlist = collections.commonplace %}
-	{%- for common in commonlist %}
-		<li>
-			<figure>
-				<blockquote>
-					{{ common.page.rawInput }}
-				</blockquote>
-				<figcaption>
-					{%- if common.data.source %}
-			- {{ common.data.source.author }}, <cite>{{ common.data.source.title }}</cite>, {{ common.data.source.page }}
-					{%- else %}
-		- citation needed
-		{%- endif %}
-				</figcaption>
-			</figure>
-		</li>
-	{%- endfor %}
-</ol>
+{% set quoteslist = collections.commonplace %}
+{% include "quoteslist.njk" %}
