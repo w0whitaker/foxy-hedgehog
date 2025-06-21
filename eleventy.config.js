@@ -75,9 +75,6 @@ export default async function (eleventyConfig) {
 				name: "Your Name",
 			},
 		},
-				name: "Your Name",
-			},
-		},
 	});
 
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
@@ -114,7 +111,6 @@ export default async function (eleventyConfig) {
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-}
 }
 
 export const config = {
