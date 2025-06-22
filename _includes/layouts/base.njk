@@ -52,8 +52,7 @@
 		<header>
 
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			{#-
-			<nav>
+			{# <nav>
 				<ul class="nav">
 					{%- for entry in collections.all | eleventyNavigation %}
 						<li class="nav-item">
@@ -61,8 +60,11 @@
 						</li>
 					{%- endfor %}
 				</ul>
-			</nav>
-			-#}
+			</nav> #}
+			<div class="site-title">
+				<h1>{{ metadata.title }}</h1>
+				<p>{{ metadata.description }}</p>
+			</div>
 		</header>
 
 		<main id="skip">

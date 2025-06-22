@@ -6,9 +6,6 @@ const eleventyNavigation = {
 
 const numberOfLatestPostsToShow = 3;
 ---
-<div class="site-title">
-	<h1>{{ metadata.title }}</h1>
-	<p>{{ metadata.description }}</p>
-</div>
+
 {% set quoteslist = collections.commonplace %}
 {% include "quoteslist.njk" %}
